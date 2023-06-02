@@ -1,14 +1,16 @@
 package com.example.Dosify.dto.ResponseDto;
 
+import com.example.Dosify.Enum.CenterType;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserResponseDto {
+@Builder
+public class CenterResponseDto {
     String name;
-    String message;
+    String location;
+    CenterType centerType;
 }

@@ -2,10 +2,7 @@ package com.example.Dosify.model;
 
 import com.example.Dosify.Enum.Gender;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import java.util.ArrayList;
@@ -17,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Table(name="user")
+@Builder
 public class User {
 
     @Id
@@ -55,4 +53,10 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     Dose_2 dose_2;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Dose1_Certificate> certificates1 = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    List<Dose2_Certificate> certificates2 = new ArrayList<>();
 }
